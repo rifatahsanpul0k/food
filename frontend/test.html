@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Test Frontend</title>
+</head>
+<body>
+    <h1>Testing Food Ordering App</h1>
+    <div id="test-data"></div>
+    <script>
+        console.log('Testing API connection...');
+        fetch('http://localhost:4000/api/restaurants')
+            .then(response => response.json())
+            .then(data => {
+                console.log('API Response:', data);
+                document.getElementById('test-data').innerHTML = 
+                    '<h2>Restaurants found: ' + data.length + '</h2>' +
+                    '<pre>' + JSON.stringify(data, null, 2) + '</pre>';
+            })
+            .catch(error => {
+                console.error('API Error:', error);
+                document.getElementById('test-data').innerHTML = 
+                    '<h2>Error connecting to API</h2><p>' + error.message + '</p>';
+            });
+    </script>
+</body>
+</html>

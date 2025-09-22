@@ -1,0 +1,63 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"label": "backend:install",
+			"type": "shell",
+			"command": "npm",
+			"args": [
+				"i"
+			],
+			"options": {
+				"cwd": "${workspaceFolder}/backend"
+			}
+		},
+		{
+			"label": "backend:dev",
+			"type": "shell",
+			"command": "npm",
+			"args": [
+				"run",
+				"dev"
+			],
+			"options": {
+				"cwd": "${workspaceFolder}/backend"
+			},
+			"isBackground": true
+		},
+		{
+			"label": "frontend:install",
+			"type": "shell",
+			"command": "npm",
+			"args": [
+				"i"
+			],
+			"options": {
+				"cwd": "${workspaceFolder}/frontend"
+			}
+		},
+		{
+			"label": "frontend:dev",
+			"type": "shell",
+			"command": "npm",
+			"args": [
+				"run",
+				"dev"
+			],
+			"options": {
+				"cwd": "${workspaceFolder}/frontend"
+			},
+			"isBackground": true
+		},
+		{
+			"label": "dev:all",
+			"type": "shell",
+			"command": "sh",
+			"args": [
+				"-c",
+				"(cd backend && npm run dev) & (cd frontend && npm run dev)"
+			],
+			"isBackground": true
+		}
+	]
+}
